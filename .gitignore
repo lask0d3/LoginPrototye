@@ -1,10 +1,10 @@
 .project
 .classpath
-._.DS_Store
+
 ._.classpath
 .DS_Store
 .settings/
 bin/
-src/
+
 profile.sketch
 ._profile.sketch
