@@ -4,10 +4,6 @@ import java.awt.event.*;
 
 public class WelcomeGUI  extends JFrame
 {
-
-	public static void main(String[] args) {
-		new WelcomeGUI();
-	}
 	
 	JFrame frame = new JFrame("Welcome");
 
