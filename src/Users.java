@@ -44,8 +44,8 @@ public class Users {
 		else {
 			return false;
 		}
-		
-		
 	}
-	
+	public String myString(){
+		return "Username " + username + " password " + password;
+	}
 }
