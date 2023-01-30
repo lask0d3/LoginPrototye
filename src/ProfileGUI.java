@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class WelcomeGUI  extends JFrame
+public class ProfileGUI  extends JFrame
 {
 	
 	JFrame frame = new JFrame("Welcome");
@@ -17,7 +17,7 @@ public class WelcomeGUI  extends JFrame
 	private Font font = new Font("SansSerif", Font.ITALIC, 30);
 	private Font font2 = new Font("SansSerif", Font.ITALIC, 18);
 	
-	public WelcomeGUI(){
+	public ProfileGUI(){
 		frame.setSize(500, 450);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

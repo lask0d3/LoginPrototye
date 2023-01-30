@@ -1,34 +1,35 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.Border;
+import javax.swing.event.*;
 
 import java.awt.event.*;
 import java.util.*;
 
-public class LogInGUI extends JFrame implements ActionListener, FocusListener{
-	
+public class LogInGUI extends JFrame implements ActionListener{
+	ArrayList<Users> userlist = new ArrayList<>();
+	Users user = null;
 	public static void main(String[] args) {
 		new LogInGUI();
 	}
-
+	// Users user = new Users(null, null);
 	JFrame frame = new JFrame("Login Prototye");
-	private JTextField usernametxt = new JTextField("Username",10);
-	private JPasswordField passwordtxt = new JPasswordField("Password",10);
-	private JLabel usernameLB = new JLabel("Username: ");
-	private JLabel passwordLB = new JLabel("Password: ");
+	private JTextField usernametxt = new JTextField(12);
+	private JPasswordField passwordtxt = new JPasswordField(12);
+	private JLabel usernameLB = new JLabel("Username ");
+	private JLabel passwordLB = new JLabel("Password ");
+	private JLabel outputLB = new JLabel();
 
 	private JButton loginBtn = new JButton("Login");
-	private JButton registerBtn = new JButton("Register"); 
+	private JButton registerBtn = new JButton("Register");
 	
 	private JLabel rightLabel = new JLabel("werwrwe");
-
 
 	private JLabel topLabel = new JLabel();
 	private JLabel labelUserCreated = new JLabel();
 	
 	private JPanel[] panel = null;
 
-	private Font font = new Font("SansSerif", Font.PLAIN, 18);
+	private Font font = new Font("SansSerif", Font.PLAIN, 19);
 	
 	public LogInGUI() {
 
@@ -41,8 +42,6 @@ public class LogInGUI extends JFrame implements ActionListener, FocusListener{
 		getPanel();
 		loginBtn.addActionListener(this);
 		registerBtn.addActionListener(this);
-		usernametxt.addFocusListener(this);
-		passwordtxt.addFocusListener(this);
 		frame.setVisible(true);
 	}
 
@@ -66,21 +65,6 @@ public class LogInGUI extends JFrame implements ActionListener, FocusListener{
 		gbc.gridy = 1;
 		panel[0].add(panel[2], gbc);
 
-		/*gbc.gridx = 0;
-		gbc.gridy = 1;
-		loginBtn.setPreferredSize(size);
-		panel[0].add(loginBtn, gbc);
-
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		registerBtn.setPreferredSize(size);
-		panel[0].add(registerBtn, gbc);*/
-
-		// gbc.gridx = 2;
-		// gbc.gridy = 1;
-		// panel[0].add(registerBtn, gbc);
-		
-
 		panel[1].setBorder(BorderFactory.createLineBorder(new Color(231,231,231), 2));
 		panel[1].setBackground(new Color(86,196,188));
 		panel[1].setPreferredSize(new Dimension(350, 250));
@@ -93,36 +77,54 @@ public class LogInGUI extends JFrame implements ActionListener, FocusListener{
 
 		gbc.gridx = 0;
 		gbc.gridy = 1;
+		gbc.insets = new Insets(0,0,0,150);
+		usernameLB.setForeground(Color.white);
+		panel[1].add(usernameLB,gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 2;
 		passwordtxt.setFont(font);
-		// passwordtxt.setBorder(BorderFactory.createTitledBorder("Username"));
+		gbc.insets = new Insets(20,0,0,0);
 		panel[1].add(passwordtxt,gbc);
 
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.insets = new Insets(0,0,0,150);
+		passwordLB.setForeground(Color.white);
+		panel[1].add(passwordLB,gbc);
 
-		// panel[2].setBackground(new Color(86,196,188));
 		panel[2].setLayout(new GridBagLayout());
 		panel[2].setBackground(new Color(86,196,188));
-		panel[2].setPreferredSize(new Dimension(350, 175));
-		// Dimension size = new Dimension(100,37);
-		gbc.insets = new Insets(40,0,0,0);
+		panel[2].setPreferredSize(new Dimension(350, 210));
+
+		gbc.insets = new Insets(35,0,0,0);
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		loginBtn.setPreferredSize(new Dimension(100, 37));
+		loginBtn.setPreferredSize(new Dimension(150, 37));
 		panel[2].add(loginBtn, gbc);
 
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		registerBtn.setPreferredSize(new Dimension(100, 25));
+		registerBtn.setPreferredSize(new Dimension(100, 30));
 		panel[2].add(registerBtn, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		outputLB.setForeground(Color.white);
+		panel[2].add(outputLB, gbc);
+
+		
 
 		
 		panel[3].setPreferredSize(new Dimension(500, 530));
 		panel[3].setBackground(Color.white);
 
-		// rightLabel.setPreferredSize(new Dimension(320, 530));
 		panel[3].setLayout(new GridBagLayout());
 		ImageIcon icon = new ImageIcon("login.png");
 		rightLabel.setIcon(icon);
-		panel[3].add(rightLabel);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		panel[3].add(rightLabel, gbc);
 
 		return panel;
 	}
@@ -131,20 +133,14 @@ public class LogInGUI extends JFrame implements ActionListener, FocusListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		String usernameln = usernametxt.getText().trim();
-		// String passwordln =new String( passwordtxt.getPassword());
 		String passwordln = String.valueOf(passwordtxt.getPassword()).trim();
 
-		ArrayList<Users> userlist = new ArrayList<>();
 		
-		
-	if (usernametxt.equals("Username")){
-		usernametxt.setText(null);
-	}
 
-		
+/*****Register Method */
 		if(e.getSource() == registerBtn)
 		{
-				Users user = new Users(usernameln, passwordln);
+			user = new Users(usernameln, passwordln);
 				if(usernameln.isEmpty()) {
 						System.out.println("Working");
 						JOptionPane.showMessageDialog(this, "Username cannot be empty");
@@ -153,40 +149,55 @@ public class LogInGUI extends JFrame implements ActionListener, FocusListener{
 						JOptionPane.showMessageDialog(this, "Password cannot be empty");
 				}
 				else if(!userlist.contains(user)){
-						System.out.println("Successfully registered");
+						userlist.add(user);
+						outputLB.setText("User has successfully registered");
+						for (Users users : userlist) {
+							System.out.println(users.getUsername() + " "+users.getPassword());
+						}
 				}
 				else{
-						System.out.println("Not registered");
+					outputLB.setText("Not registered");
 				}
-					usernametxt.setText(null);
-					passwordtxt.setText(null);
+					// usernametxt.setText(null);
+					// passwordtxt.setText(null);
 		}
-	
-	}
 
-	@Override
-	public void focusGained(FocusEvent e) {
-		// TODO Auto-generated method stub
-		if (e.getSource() == usernametxt) {
+/*****Login Method */
+		if (e.getSource()==loginBtn ) 
+		{
 			
-			usernametxt.setText(null);
-		}
-		
-	}
+				if(usernameln.isEmpty()) {
+						System.out.println("Working");
+						JOptionPane.showMessageDialog(this, "Username cannot be empty");
+				}
+				else if(passwordln.isEmpty()){
+						JOptionPane.showMessageDialog(this, "Password cannot be empty");
+				}
+				else
+				{
+					for (Users users : userlist) {
+						if(users.getUsername().equals(usernameln) && users.getPassword().equals(passwordln) ) {
+							System.out.println("Hello");
+						}
+						else{
+							System.out.println("Not");
+						}
+					}
 
-	@Override
-	public void focusLost(FocusEvent e) {
-		// TODO Auto-generated method stub
-		if (e.getSource() == usernametxt && usernametxt != null) {
-			usernametxt.setText(null);
-		}
-		// if (e.getSource() == usernametxt && usernametxt == null) {
-		// 	usernametxt.setText(null);
-		// }
-
-		// if (e.getSource() == passwordtxt && passwordtxt == null) {
-		// 	passwordtxt.setText(null);
-		// }
+			// 			for (Users userln : userlist) {
+			// 				if(userln.getUsername().equals(usernameln) && userln.getPassword().equals(usernameln)){
+			// 					System.out.println("Welcome");
+			// 				}
+			// 				else{
+			// 					System.out.println("User does not exist");
+			// 				}
+			// 			}
 		
+				}
+		}
+
+
+		
+	
 	}
 }
