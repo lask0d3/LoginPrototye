@@ -1,6 +1,5 @@
 This is a simple login prototype that I created during my first year of university.
-It initially  used data collected in a List temporarily but right now, it moves them to a file. using the Streams.
-I will be storing them in a database soon.
+It initially stored data collected in a List temporarily but right now, it moves them to a file Permanently using the Streams. I can also move them to a database like MySQL or FireBase.
 
 Login Page
 
