@@ -1,8 +1,5 @@
-This is a simple login prototype that I created in during my first year of university.
-It uses the List to store the users and passwords temporarily while the app is still running, 
-but you can store your data in a database or file permanently.
+This is a simple login prototype that I created during my first year of university.
+It initially  used data collected in a List temporarily but right now, it moves them to a file. using the Streams.
+I will be storing them in a database soon.
 
-![Screenshot 2023-01-22 at 23 19 14](https://user-images.githubusercontent.com/57866950/213945843-8091d3cc-32ac-4451-8bc9-8d8f4a8e4a39.png)
-
-
-![Screenshot 2023-01-22 at 23 08 19](https://user-images.githubusercontent.com/57866950/213945630-5076b788-a474-40a3-b7e9-f837ffd063b7.png)
+<img width="1192" alt="Screenshot 2023-02-22 at 19 35 49" src="https://user-images.githubusercontent.com/57866950/220741575-1443a55f-9331-4d10-9d4d-ddd99b287500.png">
