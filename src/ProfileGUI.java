@@ -23,7 +23,7 @@ public class ProfileGUI  extends JFrame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new  BorderLayout());
 
-		Users user = new Users(Users.username, Users.password);
+		// Users user = new Users(Users.username, Users.password);
 		
 		frame.add(panelTop, BorderLayout.NORTH);
 		labelImage.setIcon(icon);
@@ -46,7 +46,7 @@ public class ProfileGUI  extends JFrame
 
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		labelUser.setText("User: " + user.getUsername());
+		// labelUser.setText("User: " + user.getUsername());
 		labelUser.setFont(font2);
 		labelUser.setForeground(Color.white);	
 		panelCentre.add(labelUser, gbc);

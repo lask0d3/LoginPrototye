@@ -1,10 +1,27 @@
 
 public class Users {
+	public static String firstname;
+	public static String lastname;
+	public static String email;
 	public static String username;
 	public static String password;
-	public Users(String username, String password) {
+
+	public Users(String firstname, String lastnamme, String email, String username, String password) {
+		this.firstname = firstname;
+		this.lastname = lastnamme;
+		this.email = email;
 		this.username = username;
 		this.password = password;
+	}
+	public void setFirstName(String firstname) {
+		this.firstname = firstname;
+	}
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public void setUsername(String username) {
@@ -15,6 +32,18 @@ public class Users {
 		this.password = password;
 	}
 	
+	public String getFirstName() {
+		return firstname;
+	}
+
+	public String getSecondName() {
+		return lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
 	public String getUsername() {
 		return username;
 	}
