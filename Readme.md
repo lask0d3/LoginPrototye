@@ -1,5 +1,5 @@
 This is a simple login prototype that I created during my first year of university.
-It initially stored collected data in a List temporarily but right now, it moves them to a file Permanently using Streams in java. Bear in mind that it is only storing username and password, but the rest can be stored using the same way. I will try to move do that when I have time and perhaps store the data into database like MySQL or FireBase. You will see the update soon.
+It initially stored collected data in a List temporarily but right now, it moves them to a file Permanently using Streams in java. Bear in mind that it is only storing username and password details, but the rest can be stored using the same way. I will move the rest later when I have time and perhaps store the data into database like JDBC, MySQL or FireBase. You will see the update soon.
 
 Login Page
 
